@@ -1,0 +1,60 @@
+@theme inline {
+  --color-background: var(--surface-app);
+  --color-foreground: var(--text-strong);
+
+  --color-surface-card: var(--surface-card);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-well: var(--surface-well);
+
+  --color-text-strong: var(--text-strong);
+  --color-text-body: var(--text-body);
+  --color-text-dim: var(--text-dim);
+  --color-text-faint: var(--text-faint);
+
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+
+  --color-accent: var(--vee-accent);
+  --color-accent-bright: var(--vee-accent-bright);
+  --color-accent-dim: var(--vee-accent-dim);
+  --color-accent-deep: var(--vee-accent-deep);
+  --color-accent-glow: var(--vee-accent-glow);
+  --color-accent-on: var(--vee-accent-on);
+
+  --color-media: var(--vee-media);
+  --color-media-bright: var(--vee-media-bright);
+  --color-media-deep: var(--vee-media-deep);
+  --color-games: var(--vee-games);
+  --color-games-bright: var(--vee-games-bright);
+  --color-games-deep: var(--vee-games-deep);
+
+  --color-amber: var(--vee-amber);
+  --color-cyan: var(--vee-cyan);
+  --color-magenta: var(--vee-magenta);
+  --color-red: var(--vee-red);
+  --color-link: var(--link);
+
+  --color-status-watching: var(--vee-status-watching);
+  --color-status-completed: var(--vee-status-completed);
+  --color-status-backlog: var(--vee-status-backlog);
+  --color-status-dropped: var(--vee-status-dropped);
+  --color-status-archived: var(--vee-status-archived);
+  --color-status-installed: var(--vee-status-installed);
+
+  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans);
+  --font-pixel: var(--font-vt323), monospace;
+
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+
+  --animate-grid-glow-pulse: vee-glow-pulse 2.4s var(--vee-ease-in-out) infinite;
+  --animate-boot-power: vee-boot-power 1s var(--vee-ease-out) both;
+  --animate-boot-exit: vee-boot-exit 0.65s var(--vee-ease-in-out) forwards;
+  --animate-boot-orb: vee-boot-orb 8s var(--vee-ease-in-out) infinite;
+  --animate-boot-logo: vee-boot-logo 2.6s var(--vee-ease-in-out) infinite;
+  --animate-boot-line: vee-boot-line 0.34s var(--vee-ease-out) both;
+  --animate-blink: vee-blink 1.05s step-end infinite;
+  --animate-eye-blink: vee-eye-blink 4.2s var(--vee-ease-in-out) infinite;
+}

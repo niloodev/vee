@@ -1,0 +1,74 @@
+:root {
+  --vee-black: #07080a;
+  --vee-bg: #0c0e12;
+  --vee-surface-1: #14171d;
+  --vee-surface-2: #1b1f27;
+  --vee-surface-3: #232833;
+  --vee-line: #2a3039;
+  --vee-line-strong: #3a414d;
+
+  --vee-fg: #e8ecf1;
+  --vee-fg-muted: #9aa4b2;
+  --vee-fg-dim: #5d6675;
+  --vee-fg-faint: #3c434f;
+
+  --vee-amber: #f5c451;
+  --vee-cyan: #5cc8e8;
+  --vee-magenta: #e16bd0;
+  --vee-red: #ff6b6b;
+
+  --vee-media: #4ee98a;
+  --vee-media-bright: color-mix(in srgb, var(--vee-media) 78%, #ffffff);
+  --vee-media-dim: color-mix(in srgb, var(--vee-media) 62%, #000000);
+  --vee-media-deep: color-mix(in srgb, var(--vee-media) 20%, var(--vee-black));
+  --vee-media-glow: color-mix(in srgb, var(--vee-media) 28%, transparent);
+  --vee-media-on: #04160c;
+
+  --vee-games: #4d8bff;
+  --vee-games-bright: color-mix(in srgb, var(--vee-games) 78%, #ffffff);
+  --vee-games-dim: color-mix(in srgb, var(--vee-games) 62%, #000000);
+  --vee-games-deep: color-mix(in srgb, var(--vee-games) 20%, var(--vee-black));
+  --vee-games-glow: color-mix(in srgb, var(--vee-games) 28%, transparent);
+  --vee-games-on: #08152e;
+
+  --vee-status-watching: var(--vee-media);
+  --vee-status-completed: var(--vee-cyan);
+  --vee-status-backlog: var(--vee-amber);
+  --vee-status-dropped: var(--vee-red);
+  --vee-status-archived: var(--vee-fg-dim);
+  --vee-status-installed: var(--vee-media);
+
+  --surface-app: var(--vee-bg);
+  --surface-card: var(--vee-surface-1);
+  --surface-raised: var(--vee-surface-2);
+  --surface-well: var(--vee-surface-3);
+
+  --text-strong: var(--vee-fg);
+  --text-body: var(--vee-fg-muted);
+  --text-dim: var(--vee-fg-dim);
+  --text-faint: var(--vee-fg-faint);
+
+  --border-default: var(--vee-line);
+  --border-strong: var(--vee-line-strong);
+
+  --link: var(--vee-cyan);
+}
+
+:root,
+[data-domain="media"] {
+  --vee-accent: var(--vee-media);
+  --vee-accent-bright: var(--vee-media-bright);
+  --vee-accent-dim: var(--vee-media-dim);
+  --vee-accent-deep: var(--vee-media-deep);
+  --vee-accent-glow: var(--vee-media-glow);
+  --vee-accent-on: var(--vee-media-on);
+}
+
+[data-domain="games"] {
+  --vee-accent: var(--vee-games);
+  --vee-accent-bright: var(--vee-games-bright);
+  --vee-accent-dim: var(--vee-games-dim);
+  --vee-accent-deep: var(--vee-games-deep);
+  --vee-accent-glow: var(--vee-games-glow);
+  --vee-accent-on: var(--vee-games-on);
+}

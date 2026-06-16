@@ -1,0 +1,16 @@
+:root {
+  --vee-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --vee-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --vee-dur-fast: 110ms;
+  --vee-dur-med: 200ms;
+  --vee-dur-slow: 320ms;
+
+  --vee-grid-line: rgba(255, 255, 255, 0.022);
+  --vee-scanline: rgba(0, 0, 0, 0.16);
+}
+
+@property --glow-radius {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 260px;
+}

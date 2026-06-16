@@ -1,0 +1,109 @@
+@keyframes vee-glow-pulse {
+  0%,
+  100% {
+    --glow-radius: 230px;
+    filter: brightness(0.92);
+  }
+  50% {
+    --glow-radius: 320px;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes vee-boot-power {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.004) scaleX(0.5);
+    filter: brightness(3);
+  }
+  7% {
+    opacity: 1;
+    transform: scaleY(0.02) scaleX(1);
+  }
+  14% {
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1.6);
+  }
+  22% {
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes vee-boot-exit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1) blur(0);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(0.992);
+    filter: brightness(1.35) blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.045);
+    filter: brightness(0.55) blur(8px);
+  }
+}
+
+@keyframes vee-boot-orb {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(26px, -18px) scale(1.1);
+    opacity: 0.62;
+  }
+}
+
+@keyframes vee-boot-logo {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px var(--vee-accent-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px var(--vee-accent-glow));
+  }
+}
+
+@keyframes vee-boot-line {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes vee-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes vee-eye-blink {
+  0%,
+  92%,
+  100% {
+    opacity: 0;
+  }
+  95%,
+  98% {
+    opacity: 1;
+  }
+}

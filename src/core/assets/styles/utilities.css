@@ -1,0 +1,39 @@
+@utility vee-grid-bg {
+  background-color: var(--surface-app);
+  background-image:
+    linear-gradient(var(--vee-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--vee-grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility vee-grid-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle var(--glow-radius) at var(--glow-x, 50%) var(--glow-y, 50%),
+    var(--vee-accent-glow),
+    transparent 70%
+  );
+  opacity: var(--glow-opacity, 0);
+  transition: opacity var(--vee-dur-slow) var(--vee-ease-out);
+}
+
+@utility vee-scanlines {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 2px,
+      var(--vee-scanline) 2px,
+      var(--vee-scanline) 3px
+    );
+    opacity: 0.45;
+    mix-blend-mode: multiply;
+  }
+}

@@ -1,0 +1,14 @@
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--surface-app);
+  color: var(--text-strong);
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+::selection {
+  background: var(--vee-accent-glow);
+  color: var(--vee-fg);
+}
