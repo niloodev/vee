@@ -10,9 +10,6 @@ pub fn run() {
       username TEXT NOT NULL,
       displayName TEXT NOT NULL,
       avatar TEXT NOT NULL DEFAULT '',
-      defaultGameDir TEXT NOT NULL DEFAULT '',
-      defaultRomDir TEXT NOT NULL DEFAULT '',
-      defaultEmulator TEXT NOT NULL DEFAULT '',
       mcpEnabled INTEGER NOT NULL DEFAULT 0,
       mcpKey TEXT NOT NULL DEFAULT ''
     );",

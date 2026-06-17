@@ -8,9 +8,6 @@ export interface AccountRow {
   username: string;
   displayName: string;
   avatar: string;
-  defaultGameDir: string;
-  defaultRomDir: string;
-  defaultEmulator: string;
   mcpEnabled: number;
   mcpKey: string;
 }

@@ -12,7 +12,8 @@ export const getAccount: IAccountController["getAccount"] = async () => {
     const account = await getAccountModel();
     if (!account) return { error: accountErrors.accountNotFound };
     return { message: "Conta carregada com sucesso", payload: account };
-  } catch {
+  } catch (error) {
+    console.error("getAccount failed:", error);
     return { error: accountErrors.accountNotLoaded };
   }
 };
@@ -23,7 +24,8 @@ export const saveAccount: IAccountController["saveAccount"] = async (account) =>
   try {
     const saved = await saveAccountModel(parsed.data);
     return { message: "Conta salva com sucesso", payload: saved };
-  } catch {
+  } catch (error) {
+    console.error("saveAccount failed:", error);
     return { error: accountErrors.accountNotSaved };
   }
 };
