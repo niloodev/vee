@@ -6,8 +6,12 @@ import { useBootScreen } from "./BootScreen.hook";
 import type { BootScreenProps } from "./BootScreen.types";
 import { BootLog, BootProgress } from "./subcomponents";
 
-export function BootScreen({ onExit, onDone }: BootScreenProps) {
-  const { visibleLines, pct, exiting, phase, caption, complete } = useBootScreen({ onExit, onDone });
+export function BootScreen({ ready, onExit, onDone }: BootScreenProps) {
+  const { visibleLines, pct, exiting, phase, caption, complete } = useBootScreen({
+    ready,
+    onExit,
+    onDone,
+  });
 
   return (
     <div

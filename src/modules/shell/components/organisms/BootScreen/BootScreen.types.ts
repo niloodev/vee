@@ -9,6 +9,7 @@ export interface BootLine {
 }
 
 export interface BootScreenProps {
+  ready?: boolean;
   onExit?: () => void;
   onDone?: () => void;
 }

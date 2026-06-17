@@ -41,7 +41,7 @@ A arquitetura é a soma de **12 invariantes**. Todo o resto deriva deles.
 5. **Localidade de reuso.** Só promova algo a um escopo compartilhado quando houver reuso real. Enquanto for de um só dono, fica aninhado nele.
 6. **Composição em níveis.** UI reutilizável é classificada por nível de composição (do primitivo ao mais complexo).
 7. **Fatiamento por feature.** A aplicação é particionada em features autocontidas, não em "camadas técnicas" gigantes.
-8. **Direção única de dependência.** O grafo de dependências é acíclico e flui sempre no mesmo sentido (borda → feature → domínio → infraestrutura).
+8. **Direção única de dependência.** O grafo de dependências é acíclico e flui sempre no mesmo sentido (borda → feature → domínio → infraestrutura). **Exceção única:** o ponto central de composição de provedores (`GlobalProviders`, no core) pode importar provedores de qualquer feature, pois seu único papel é centralizar os provedores de todos os módulos.
 9. **MVC na camada de dados.** Separe forma/persistência (Model), lógica de borda (Controller) e apresentação (View).
 10. **Bordas normalizadas.** Toda saída de Controller usa um envelope uniforme (sucesso/erro); toda entrada é validada por um schema; erros são catalogados em um só lugar.
 11. **Dependa de interfaces, não de implementações.** O domínio expõe contratos e os consumidores dependem deles. *(Opcional)* Quando a aplicação precisa alternar entre fontes de dados, forneça mais de uma implementação da mesma interface e um seletor para escolher em runtime; aplicações de fonte única não precisam disso.
@@ -70,11 +70,11 @@ A aplicação tem **camadas com responsabilidade fixa** e uma **regra de depend�
 Regras invioláveis:
 
 - **Sentido único.** Entrada → Features → Domínio → Infra. Nunca o contrário.
-- **O domínio não conhece as features.** O núcleo (Model/Controller) jamais importa de uma feature ou do design system. Isso o mantém reaproveitável e testável isoladamente.
+- **O domínio não conhece as features.** O núcleo (Model/Controller) jamais importa de uma feature ou do design system. Isso o mantém reaproveitável e testável isoladamente. **Exceção:** o ponto central de composição de provedores (`GlobalProviders`) é o único artefato do core autorizado a importar provedores de features, justamente por existir para centralizar os provedores de todos os módulos. Model e Controller seguem proibidos de fazê-lo.
 - **Compartilhado não conhece feature.** Código transversal não importa de nenhuma feature (senão deixa de ser transversal).
 - **Sem ciclos.** Se duas pastas precisam uma da outra, falta uma abstração entre elas.
 
-> `Exemplo (ilustrativo):` num projeto verificou-se que `core/` (domínio) não importa nada de `modules/` (features) nem do design system, e que o código `shared/` não importa de `modules/`. Essas duas checagens são um bom teste automatizável da regra de dependência em qualquer stack (um simples *grep* por imports proibidos).
+> `Exemplo (ilustrativo):` num projeto verificou-se que `core/` (domínio) não importa nada de `modules/` (features) nem do design system (exceto o `GlobalProviders`, ponto de composição de provedores), e que o código `shared/` não importa de `modules/`. Essas duas checagens são um bom teste automatizável da regra de dependência em qualquer stack (um simples *grep* por imports proibidos).
 
 ---
 

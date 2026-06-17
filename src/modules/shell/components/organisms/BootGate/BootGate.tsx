@@ -6,12 +6,14 @@ import { useBootGate } from "./BootGate.hook";
 import type { BootGateProps } from "./BootGate.types";
 
 export function BootGate({ children }: BootGateProps) {
-  const { phase, startExit, finishBoot } = useBootGate();
+  const { phase, ready, startExit, finishBoot } = useBootGate();
 
   return (
     <>
       {phase !== "booting" && children}
-      {phase !== "done" && <BootScreen onExit={startExit} onDone={finishBoot} />}
+      {phase !== "done" && (
+        <BootScreen ready={ready} onExit={startExit} onDone={finishBoot} />
+      )}
     </>
   );
 }

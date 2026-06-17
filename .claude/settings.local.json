@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/c/froggie-projects-win/vee/src/modules/shell/components/organisms/BootGate/**)",
+      "Read(//c/c/froggie-projects-win/vee/src/modules/shell/components/pages/ShellPage/**)",
+      "Read(//c/c/froggie-projects-win/vee/src/app/\\(shell\\)/**)",
+      "Read(//c/c/froggie-projects-win/vee/src/app/**)",
+      "Read(//c/c/froggie-projects-win/vee/src/modules/shell/**)"
+    ]
+  }
+}
