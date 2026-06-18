@@ -10,12 +10,6 @@ const ACCENT_DIM = "var(--vee-accent-dim)";
 const EYE_WHITE = "#eafff3";
 const PUPIL = "var(--vee-black)";
 
-/**
- * Builds the Vee frog-play brand mark on an 18x18 pixel grid: a rounded arcade
- * body with a play triangle cut from the negative space and two frog eyes on
- * top. Returns the body/eye pixels plus the lid pixels (rendered separately so
- * they can blink). Pure and deterministic, evaluated once at module load.
- */
 function buildPlayMark(): {
   pixels: PlayMarkPixel[];
   lids: Array<[number, number]>;
@@ -23,16 +17,30 @@ function buildPlayMark(): {
   const base = new Map<string, string>();
   const whites = new Map<string, string>();
   const lids: Array<[number, number]> = [];
-  const setPixel = (map: Map<string, string>, x: number, y: number, fill: string) =>
-    map.set(`${x},${y}`, fill);
+  const setPixel = (
+    map: Map<string, string>,
+    x: number,
+    y: number,
+    fill: string,
+  ) => map.set(`${x},${y}`, fill);
 
   const bx0 = 2;
   const bx1 = 15;
   const by0 = 5;
   const by1 = 16;
   const cutCorners = [
-    [bx0, by0], [bx0 + 1, by0], [bx0, by0 + 1], [bx1, by0], [bx1 - 1, by0], [bx1, by0 + 1],
-    [bx0, by1], [bx0 + 1, by1], [bx0, by1 - 1], [bx1, by1], [bx1 - 1, by1], [bx1, by1 - 1],
+    [bx0, by0],
+    [bx0 + 1, by0],
+    [bx0, by0 + 1],
+    [bx1, by0],
+    [bx1 - 1, by0],
+    [bx1, by0 + 1],
+    [bx0, by1],
+    [bx0 + 1, by1],
+    [bx0, by1 - 1],
+    [bx1, by1],
+    [bx1 - 1, by1],
+    [bx1, by1 - 1],
   ];
   const isCorner = (x: number, y: number) =>
     cutCorners.some((corner) => corner[0] === x && corner[1] === y);
@@ -75,16 +83,46 @@ function buildPlayMark(): {
 
   [5, 12].forEach((ex) => {
     const dome = [
-      [ex - 1, 1], [ex, 1], [ex + 1, 1], [ex - 2, 2], [ex - 1, 2], [ex, 2], [ex + 1, 2], [ex + 2, 2],
-      [ex - 2, 3], [ex - 1, 3], [ex, 3], [ex + 1, 3], [ex + 2, 3], [ex - 2, 4], [ex - 1, 4], [ex, 4], [ex + 1, 4], [ex + 2, 4],
+      [ex - 1, 1],
+      [ex, 1],
+      [ex + 1, 1],
+      [ex - 2, 2],
+      [ex - 1, 2],
+      [ex, 2],
+      [ex + 1, 2],
+      [ex + 2, 2],
+      [ex - 2, 3],
+      [ex - 1, 3],
+      [ex, 3],
+      [ex + 1, 3],
+      [ex + 2, 3],
+      [ex - 2, 4],
+      [ex - 1, 4],
+      [ex, 4],
+      [ex + 1, 4],
+      [ex + 2, 4],
     ];
-    dome.forEach(([x, y]) => setPixel(base, x, y, y <= 1 ? ACCENT_BRIGHT : ACCENT));
-    [[ex - 1, 2], [ex, 2], [ex - 1, 3], [ex, 3]].forEach(([x, y]) => setPixel(whites, x, y, EYE_WHITE));
+    dome.forEach(([x, y]) =>
+      setPixel(base, x, y, y <= 1 ? ACCENT_BRIGHT : ACCENT),
+    );
+    [
+      [ex - 1, 2],
+      [ex, 2],
+      [ex - 1, 3],
+      [ex, 3],
+    ].forEach(([x, y]) => setPixel(whites, x, y, EYE_WHITE));
     setPixel(whites, ex, 2, PUPIL);
     setPixel(whites, ex, 3, PUPIL);
-    [[ex - 2, 2], [ex - 1, 2], [ex, 2], [ex + 1, 2], [ex - 2, 3], [ex - 1, 3], [ex, 3], [ex + 1, 3]].forEach(
-      ([x, y]) => lids.push([x, y]),
-    );
+    [
+      [ex - 2, 2],
+      [ex - 1, 2],
+      [ex, 2],
+      [ex + 1, 2],
+      [ex - 2, 3],
+      [ex - 1, 3],
+      [ex, 3],
+      [ex + 1, 3],
+    ].forEach(([x, y]) => lids.push([x, y]));
   });
 
   const pixels: PlayMarkPixel[] = [];
