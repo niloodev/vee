@@ -3,8 +3,11 @@
 import { useEffect, useState } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 
+import { useActiveModule } from "@/modules/shell/hooks/useActiveModule";
+
 export function useTitlebar() {
   const [isMaximized, setIsMaximized] = useState(false);
+  const { activeModule, activeTabId } = useActiveModule();
 
   useEffect(() => {
     const appWindow = getCurrentWindow();
@@ -24,5 +27,13 @@ export function useTitlebar() {
   const toggleMaximize = () => getCurrentWindow().toggleMaximize();
   const close = () => getCurrentWindow().close();
 
-  return { isMaximized, minimize, toggleMaximize, close };
+  return {
+    isMaximized,
+    minimize,
+    toggleMaximize,
+    close,
+    domain: activeModule.domain,
+    script: `${activeTabId}.sh`,
+    statusPath: `~/vee/${activeModule.domain}/${activeTabId}`,
+  };
 }
