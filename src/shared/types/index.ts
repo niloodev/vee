@@ -6,3 +6,13 @@ export type {
   ModuleNavSection,
   ModulePageProps,
 } from "./module.types";
+export type {
+  StatDef,
+  TypeChip,
+  CardProgress,
+  IconChip,
+  CardModel,
+  FeaturedModel,
+  DashboardFeatured,
+  DashboardViewProps,
+} from "./dashboard.types";

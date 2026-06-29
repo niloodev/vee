@@ -1,9 +1,8 @@
-import { mediaNav } from "@/modules/media/media.constants";
+import { buildMediaDashboard } from "@/modules/media/dashboard/mediaDashboard";
+import { useApp } from "@/modules/shell/store/appSlice";
 
-export function useMediaPage(activeTabId: string) {
-  const tab = mediaNav
-    .flatMap((section) => section.items)
-    .find((item) => item.id === activeTabId);
+export function useMediaDashboard() {
+  const { items } = useApp();
 
-  return { tabLabel: tab?.label ?? activeTabId };
+  return buildMediaDashboard(items.data);
 }

@@ -6,7 +6,7 @@ import { useAccountGate } from "./AccountGate.hook";
 import type { AccountGateProps } from "./AccountGate.types";
 
 export function AccountGate({ children }: AccountGateProps) {
-  const { hasAccount } = useAccountGate();
+  const { showWelcome, finishWelcome } = useAccountGate();
 
-  return hasAccount ? <>{children}</> : <WelcomeModal />;
+  return showWelcome ? <WelcomeModal onComplete={finishWelcome} /> : <>{children}</>;
 }

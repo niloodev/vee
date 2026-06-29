@@ -16,6 +16,8 @@ export function DashboardSide() {
     activeModuleId,
     activeTabId,
     accountName,
+    accountUsername,
+    openAccountModal,
     selectModule,
     selectTab,
   } = useDashboardSide();
@@ -37,7 +39,11 @@ export function DashboardSide() {
         activeId={activeTabId}
         onSelect={selectTab}
       />
-      <ProfileCard name={accountName} />
+      <ProfileCard
+        name={accountName}
+        username={accountUsername}
+        onOpenSettings={openAccountModal}
+      />
     </aside>
   );
 }

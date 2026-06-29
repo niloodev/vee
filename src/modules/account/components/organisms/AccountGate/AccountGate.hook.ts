@@ -3,7 +3,10 @@
 import { useApp } from "@/modules/shell/store/appSlice";
 
 export function useAccountGate() {
-  const { account } = useApp();
+  const { account, ui, setReplayWelcome } = useApp();
 
-  return { hasAccount: account.data !== null };
+  return {
+    showWelcome: account.data === null || ui.replayWelcome,
+    finishWelcome: () => setReplayWelcome(false),
+  };
 }

@@ -5,6 +5,7 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  Clock,
   Cpu,
   Film,
   Folder,
@@ -16,13 +17,16 @@ import {
   Mic,
   Monitor,
   Play,
+  RefreshCw,
   Settings,
+  Star,
   StickyNote,
   Terminal,
   TriangleAlert,
   Tv,
   Upload,
   X,
+  Zap,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -51,4 +55,8 @@ export const ICONS = {
   layers: Layers,
   monitor: Monitor,
   cpu: Cpu,
+  star: Star,
+  clock: Clock,
+  zap: Zap,
+  refresh: RefreshCw,
 } satisfies Record<string, LucideIcon>;

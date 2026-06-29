@@ -8,6 +8,8 @@ export interface AccountRow {
   username: string;
   displayName: string;
   avatar: string;
+  mediaColor: string;
+  gamesColor: string;
   mcpEnabled: number;
   mcpKey: string;
 }

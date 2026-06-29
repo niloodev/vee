@@ -4,7 +4,7 @@ import { useApp } from "@/modules/shell/store/appSlice";
 import type { SegmentedItem } from "@/shared/components/molecules";
 
 export function useDashboardSide() {
-  const { account, setActiveModule, setActiveTab } = useApp();
+  const { account, setActiveModule, setActiveTab, openAccountModal } = useApp();
   const { activeModule, activeTabId } = useActiveModule();
 
   const moduleItems: SegmentedItem[] = shellModules.map((module) => ({
@@ -25,6 +25,8 @@ export function useDashboardSide() {
     activeModuleId: activeModule.id,
     activeTabId,
     accountName: account.data?.displayName ?? "Guest",
+    accountUsername: account.data?.username,
+    openAccountModal,
     selectModule,
     selectTab: setActiveTab,
   };

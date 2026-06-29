@@ -12,3 +12,34 @@ body {
   background: var(--vee-accent-glow);
   color: var(--vee-fg);
 }
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--vee-surface-3) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vee-surface-3);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  transition: background var(--vee-dur-fast) var(--vee-ease-out);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vee-accent-dim);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

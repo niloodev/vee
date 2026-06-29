@@ -1,9 +1,8 @@
-import { gamesNav } from "@/modules/games/games.constants";
+import { buildGamesDashboard } from "@/modules/games/dashboard/gamesDashboard";
+import { useApp } from "@/modules/shell/store/appSlice";
 
-export function useGamesPage(activeTabId: string) {
-  const tab = gamesNav
-    .flatMap((section) => section.items)
-    .find((item) => item.id === activeTabId);
+export function useGamesDashboard() {
+  const { items } = useApp();
 
-  return { tabLabel: tab?.label ?? activeTabId };
+  return buildGamesDashboard(items.data);
 }
